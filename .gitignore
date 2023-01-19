@@ -39,6 +39,9 @@ build/Release
 
 # Dependency directories
 node_modules/
+#ignore node modules in all subfolder for this directory
+node_modules/**/node_modules
+#ignore node
 jspm_packages/
 
 # TypeScript v1 declaration files

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import material ui
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import { useDispatch } from "react-redux";
 import digital_encyclopedia from "./images/digital_encyclopedia.png";
+import { getPosts } from "./actions/posts";
 // import components
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
@@ -9,11 +11,16 @@ import Form from "./components/Form/Form";
 import useStyles from "./styles";
 const App = () => {
 	const classes = useStyles();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getPosts());
+	}, [dispatch]);
 
 	return (
 		<Container maxwidth="lg">
 			<AppBar className={classes.appBar} position="static" color="inherit">
-				<Typography classNamee={classes.heading} variant="h2" align="center">
+				<Typography className={classes.heading} variant="h2" align="center">
 					Digital Encyclopedia
 				</Typography>
 				<img
